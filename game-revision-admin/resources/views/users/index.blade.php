@@ -28,7 +28,7 @@
                     <td class="py-3 px-4">{{ $index + 1 }}</td>
                     <td class="py-3 px-4 font-medium">{{ $user->name }}</td>
                     <td class="py-3 px-4">{{ $user->email }}</td>
-                    <td class="py-3 px-4">{{ ucfirst($user->role ?? 'user') }}</td>
+                    <td class="py-3 px-4">{{ ucfirst($user->role ?? 'admin') }}</td>
                     <td class="py-3 px-4 text-right space-x-2">
                         <a href="{{ route('users.edit', $user) }}"
                            class="text-blue-400 hover:text-blue-500 font-medium">

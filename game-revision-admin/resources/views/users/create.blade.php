@@ -17,7 +17,7 @@
 
         <!-- Name -->
         <div class="mb-4">
-            <label class="block text-gray-300 mb-1" for="name">Name</label>
+            <label for="name" class="block text-gray-300 mb-1">Name</label>
             <input id="name" name="name" type="text" value="{{ old('name') }}"
                    class="w-full px-4 py-2 rounded-lg bg-[#1F2028] text-gray-300 focus:outline-none" required>
             @error('name')
@@ -27,7 +27,7 @@
 
         <!-- Email -->
         <div class="mb-4">
-            <label class="block text-gray-300 mb-1" for="email">Email</label>
+            <label for="email" class="block text-gray-300 mb-1">Email</label>
             <input id="email" name="email" type="email" value="{{ old('email') }}"
                    class="w-full px-4 py-2 rounded-lg bg-[#1F2028] text-gray-300 focus:outline-none" required>
             @error('email')
@@ -37,7 +37,7 @@
 
         <!-- Password -->
         <div class="mb-4">
-            <label class="block text-gray-300 mb-1" for="password">Password</label>
+            <label for="password" class="block text-gray-300 mb-1">Password</label>
             <input id="password" name="password" type="password"
                    class="w-full px-4 py-2 rounded-lg bg-[#1F2028] text-gray-300 focus:outline-none" required>
             @error('password')
@@ -47,10 +47,18 @@
 
         <!-- Role -->
         <div class="mb-6">
-            <label class="block text-gray-300 mb-1" for="role">Role</label>
+            <label for="role" class="block text-gray-300 mb-1">Role</label>
             <select id="role" name="role"
                     class="w-full px-4 py-2 rounded-lg bg-[#1F2028] text-gray-300 focus:outline-none">
-                <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                
+                <!-- Default Admin -->
+                <option value="admin" {{ old('role', 'admin') == 'admin' ? 'selected' : '' }}>
+                    Admin
+                </option>
+
+                <!-- Jika nanti mau ada role lain tinggal buka komentar ini -->
+                <!-- {{-- <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option> --}}
+                {{-- <option value="superadmin" {{ old('role') == 'superadmin' ? 'selected' : '' }}>Super Admin</option> --}} -->
             </select>
             @error('role')
                 <p class="text-red-400 text-sm mt-1">{{ $message }}</p>

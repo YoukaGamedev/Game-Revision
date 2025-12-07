@@ -36,25 +36,24 @@
             @enderror
         </div>
 
-        {{-- Role --}}
-        <div class="mb-4">
-            <label class="block text-gray-300 mb-1" for="role">Role</label>
-            <select id="role" name="role"
-                    class="w-full px-4 py-2 rounded-lg bg-[#1F2028] text-gray-300 focus:outline-none">
-                <option value="user" {{ old('role', $user->role)=='user'?'selected':'' }}>User</option>
-                
-            </select>
-            @error('role')
-                <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-
         {{-- Password (opsional) --}}
         <div class="mb-6">
             <label class="block text-gray-300 mb-1" for="password">Password (biarkan kosong jika tidak diubah)</label>
             <input id="password" name="password" type="password"
                    class="w-full px-4 py-2 rounded-lg bg-[#1F2028] text-gray-300 focus:outline-none">
             @error('password')
+                <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- Role --}}
+        <div class="mb-4">
+            <label class="block text-gray-300 mb-1" for="role">Role</label>
+            <select id="role" name="role"
+                    class="w-full px-4 py-2 rounded-lg bg-[#1F2028] text-gray-300 focus:outline-none">
+                <option value="admin" {{ old('role', 'admin') == 'admin' ? 'selected' : '' }}>Admin</option>
+            </select>
+            @error('role')
                 <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>

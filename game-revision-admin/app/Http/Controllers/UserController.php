@@ -22,7 +22,7 @@ class UserController extends Controller
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            'role' => 'required|in:user,admin'
+            'role' => 'required|in:admin'
         ]);
 
         $validated['password'] = bcrypt($validated['password']);
@@ -39,7 +39,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:users,email,'.$user->id,
-            'role' => 'required|in:user,admin',
+            'role' => 'required|in:admin',
             'password' => 'nullable|min:6',
         ]);
 
